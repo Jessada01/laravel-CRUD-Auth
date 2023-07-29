@@ -1,6 +1,6 @@
 <h1>Laravel Store</h1>
 <h2>เป็น project ร้านค้าออนไลน์</h2>
-มีระบบงานได้แก่
+มีระบบงานได้แก่ <br>
 -Authentication <br>
 -Authorization <br>
 -CRUD <br>
