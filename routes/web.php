@@ -28,17 +28,17 @@ Auth::routes();
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('admin/home',[HomeController::class , 'adminHome'])->name('admin.home')->middleware('is_admin');
 
-Route::resource('products', ProductController::class);
+Route::resource('products', ProductController::class)->middleware('is_admin');
 
-Route::resource('orders', OrderController::class);
+Route::resource('orders', OrderController::class)->middleware('is_admin');
 
-Route::get('delete/{id}',[ProductController::class,'deletepro']);
+Route::get('delete/{id}',[ProductController::class,'deletepro'])->middleware('is_admin');
 
 // --------------- Report ------------------- //
-Route::get('redate', function () {return view('report_date');});
-Route::get('reuser', function () {return view('report_list');}); //ของลูกค้า
-Route::get('repro', function () {return view('report_pro');});
-Route::get('rede', function () {return view('report_detail');});
+Route::get('redate', function () {return view('report_date');})->middleware('is_admin');
+Route::get('reuser', function () {return view('report_list');})->middleware('is_admin'); //ของลูกค้า
+Route::get('repro', function () {return view('report_pro');})->middleware('is_admin');
+Route::get('rede', function () {return view('report_detail');})->middleware('is_admin');
 
 
 Route::get('bill',[UserCon::class, 'bill']);
